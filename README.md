@@ -6,7 +6,8 @@
 
 MCP Server 是实现模型上下文协议（MCP）的服务器，旨在为 AI 模型提供一个标准化接口，连接外部数据源和工具，例如文件系统、数据库或 API。
 
-![image](https://github.com/user-attachments/assets/016abf34-be83-4908-9451-86677e8cdf91)
+![image](https://github.com/user-attachments/assets/7d91b2db-14dd-47c1-93ec-91dbcd3d6797)
+
 
 ### MCP 的优势
 
@@ -15,7 +16,8 @@ MCP Server 是实现模型上下文协议（MCP）的服务器，旨在为 AI �
 1. 不同的大模型厂商 Function Call 格式不一致
 2. 大量 API 工具的输入和输出格式不一致，封装管理繁琐
 
-![image](https://github.com/user-attachments/assets/bed73428-41e9-4f29-b872-24dc0853423b)
+![image](https://github.com/user-attachments/assets/01b931a3-7406-426f-8d1e-31f50d21c9e4)
+
 
 MCP 相当于一个统一的 USB-C，不仅统一了不同大模型厂商的 Function Call 格式，也对相关工具的封装进行了统一。
 
@@ -76,7 +78,8 @@ touch main.py
 ```
 
 ## 构建工具函数
-![image](https://github.com/user-attachments/assets/51c0d927-9ca6-4847-abfa-a5bf57c3e26d)
+![image](https://github.com/user-attachments/assets/b49e6ac8-9c5d-432d-8a52-48eaa159aaea)
+
 
 为了让大模型能访问市面上主流框架的技术文档，我们主要通过用户输入的 query，结合指定 site 特定域名的谷歌搜索进行搜索相关网页，并对相关网页进行解析提取网页文本并返回。
 
@@ -287,13 +290,15 @@ uv run main.py
 ```
 
 成功绑定如图（左侧绿灯）：
-![image](https://github.com/user-attachments/assets/bac4a9c4-7e03-4ae6-95dc-cc084606d7d9)
+![image](https://github.com/user-attachments/assets/6b166508-5eea-48b9-b31b-40330ee0b3ca)
+
 
 
 #### 2.2 基于 Cursor
 
 项目根目录创建 .cursor 文件夹，并创建 mcp.json 文件，如：
-![image](https://github.com/user-attachments/assets/006beff9-8f63-4c4b-ac23-726e4961c81c)
+![image](https://github.com/user-attachments/assets/fe47e9a9-fd05-4c60-85e1-dc0807af3eee)
+
 
 然后粘贴以下内容到 mcp.json
 
@@ -314,13 +319,16 @@ uv run main.py
 ```
 
 成功配置如图：
-![image](https://github.com/user-attachments/assets/9f3f3503-ef19-4130-82de-ceaaf7f784b6)
+![image](https://github.com/user-attachments/assets/c42b4564-bb92-4550-9bb0-d510e7645834)
+
 
 在 Features 开启 MCP 服务
-![image](https://github.com/user-attachments/assets/ae431063-952c-4d67-8b5c-2bc23d2f6309)
+![image](https://github.com/user-attachments/assets/386282c2-7ff5-4797-a478-b4cca65984ba)
+
 
 通过对话它便通过 MCP 获取相关文档信息进行回答：
-![image](https://github.com/user-attachments/assets/bd9aa693-85c4-478b-83ca-10f5fc7a9a48)
+![image](https://github.com/user-attachments/assets/283c4702-cd40-4150-8efa-e23d515b13af)
+
 
 ## 构建 SSE MCP Server (基于 SSE 协议)
 
@@ -632,10 +640,12 @@ uv run client.py http://0.0.0.0:8020/sse
 ```
 
 Client 日志：
-![image](https://github.com/user-attachments/assets/b3ea9260-5526-4828-9f9d-c1accfe5711c)
+![image](https://github.com/user-attachments/assets/c4999d81-8a80-49a3-93c1-62571d4bed22)
+
 
 Server 日志：
-![image](https://github.com/user-attachments/assets/c8da3890-5476-4473-a7fb-e38c2c12ea7f)
+![image](https://github.com/user-attachments/assets/2f45ac47-31db-442d-ad0a-87d3b3bef8b5)
+
 
 以上便是 Python 从 0 到 1 搭建 MCP Server 以及 MCP Client 的完整教程。有不对的地方请多多指教。
 
