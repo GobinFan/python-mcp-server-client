@@ -6,7 +6,7 @@
 
 MCP Server implements the Model Context Protocol (MCP), providing a standardized interface for AI models to connect with external data sources and tools such as file systems, databases, or APIs.
 
-![image](https://github.com/user-attachments/assets/016abf34-be83-4908-9451-86677e8cdf91)
+![image](https://github.com/user-attachments/assets/7d91b2db-14dd-47c1-93ec-91dbcd3d6797)
 
 ### Advantages of MCP
 
@@ -15,7 +15,7 @@ Before MCP, AI tool calls were primarily handled through Function Calls, which h
 1. Inconsistent Function Call formats across different LLM providers
 2. Inconsistent input/output formats across various API tools, making encapsulation and management cumbersome
 
-![image](https://github.com/user-attachments/assets/bed73428-41e9-4f29-b872-24dc0853423b)
+![image](https://github.com/user-attachments/assets/01b931a3-7406-426f-8d1e-31f50d21c9e4)
 
 MCP acts as a unified USB-C equivalent, standardizing both Function Call formats from different LLM providers and tool encapsulation.
 
@@ -76,7 +76,7 @@ touch main.py
 ```
 
 ## Building Tool Functions
-![image](https://github.com/user-attachments/assets/51c0d927-9ca6-4847-abfa-a5bf57c3e26d)
+![image](https://github.com/user-attachments/assets/b49e6ac8-9c5d-432d-8a52-48eaa159aaea)
 
 To enable large language models to access technical documentation of mainstream frameworks, we'll build a tool that searches web pages based on user queries and specific site domains using Google search, then parses and extracts text from relevant pages.
 
@@ -285,9 +285,10 @@ First, install the Cline plugin in Visual Studio Code, then configure MCP:
   }
 }
 ```
-![image](https://github.com/user-attachments/assets/bac4a9c4-7e03-4ae6-95dc-cc084606d7d9)
+![image](https://github.com/user-attachments/assets/6b166508-5eea-48b9-b31b-40330ee0b3ca)
 #### 2.2 Using Cursor
-![image](https://github.com/user-attachments/assets/006beff9-8f63-4c4b-ac23-726e4961c81c)
+![image](https://github.com/user-attachments/assets/fe47e9a9-fd05-4c60-85e1-dc0807af3eee)
+
 Create a .cursor folder in the project root directory and create an mcp.json file with:
 
 ```json
@@ -307,8 +308,8 @@ Create a .cursor folder in the project root directory and create an mcp.json fil
 ```
 
 Enable MCP service in Features.
-![image](https://github.com/user-attachments/assets/ae431063-952c-4d67-8b5c-2bc23d2f6309)
-![image](https://github.com/user-attachments/assets/bd9aa693-85c4-478b-83ca-10f5fc7a9a48)
+![image](https://github.com/user-attachments/assets/386282c2-7ff5-4797-a478-b4cca65984ba)
+![image](https://github.com/user-attachments/assets/283c4702-cd40-4150-8efa-e23d515b13af)
 
 
 
