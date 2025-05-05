@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/gobinfan-python-mcp-server-client-badge.png)](https://mseep.ai/app/gobinfan-python-mcp-server-client)
+
 # Python 从0到1构建MCP Server & Client
 
 中文 | [English](README_EN.md)
