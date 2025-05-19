@@ -1,11 +1,8 @@
 # main.py
-from mcp.server.fastmcp import FastMCP
 from dotenv import load_dotenv
-import httpx
 import json
 import os
 from bs4 import BeautifulSoup 
-from typing import Any
 import httpx
 from mcp.server.fastmcp import FastMCP
 from starlette.applications import Starlette
@@ -92,13 +89,13 @@ async def get_docs(query: str, library: str):
 # Stdio协议
 if __name__ == "__main__":
     mcp.run(transport="stdio")
- 
+
 
 #  # SSE协议
 # def create_starlette_app(mcp_server: Server, *, debug: bool = False) -> Starlette:
 #     """Create a Starlette application that can server the provied mcp server with SSE."""
 #     sse = SseServerTransport("/messages/")
-
+#
 #     async def handle_sse(request: Request) -> None:
 #         async with sse.connect_sse(
 #                 request.scope,
@@ -110,7 +107,7 @@ if __name__ == "__main__":
 #                 write_stream,
 #                 mcp_server.create_initialization_options(),
 #             )
-
+#
 #     return Starlette(
 #         debug=debug,
 #         routes=[
@@ -118,18 +115,18 @@ if __name__ == "__main__":
 #             Mount("/messages/", app=sse.handle_post_message),
 #         ],
 #     )
-
+#
 # if __name__ == "__main__":
-#     mcp_server = mcp._mcp_server   
-
+#     mcp_server = mcp._mcp_server
+#
 #     import argparse
-    
+#
 #     parser = argparse.ArgumentParser(description='Run MCP SSE-based server')
 #     parser.add_argument('--host', default='0.0.0.0', help='Host to bind to')
 #     parser.add_argument('--port', type=int, default=8020, help='Port to listen on')
 #     args = parser.parse_args()
-
+#
 #     # Bind SSE request handling to MCP server
 #     starlette_app = create_starlette_app(mcp_server, debug=True)
-
+#
 #     uvicorn.run(starlette_app, host=args.host, port=args.port)
