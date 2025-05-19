@@ -3,7 +3,6 @@ import json
 import os
 from typing import Optional
 from contextlib import AsyncExitStack
-import time
 from mcp import ClientSession
 from mcp.client.sse import sse_client
 
@@ -22,11 +21,8 @@ class MCPClient:
     async def connect_to_sse_server(self, server_url: str):
         """Connect to an MCP server running with SSE transport"""
         # Store the context managers so they stay alive
-        self._streams_context = sse_client(url=server_url)
-        streams = await self._streams_context.__aenter__()
-
-        self._session_context = ClientSession(*streams)
-        self.session: ClientSession = await self._session_context.__aenter__()
+        streams = await self.exit_stack.enter_async_context(sse_client(url=server_url))
+        self.session = await self.exit_stack.enter_async_context(ClientSession(*streams))
 
         # Initialize
         await self.session.initialize()
@@ -40,10 +36,7 @@ class MCPClient:
 
     async def cleanup(self):
         """Properly clean up the session and streams"""
-        if self._session_context:
-            await self._session_context.__aexit__(None, None, None)
-        if self._streams_context:
-            await self._streams_context.__aexit__(None, None, None)
+        await self.exit_stack.aclose()
 
     async def process_query(self, query: str) -> str:
         """Process a query using OpenAI API and available tools"""
@@ -105,8 +98,8 @@ class MCPClient:
                     }
                 ])
 
-                # print(f"Tool {tool_name} returned: {result.content[0].text}")
-                # print("messages", messages)
+                print(f"Tool {tool_name} returned: {result.content[0].text}")
+                print("messages", messages)
                 # Get next response from OpenAI
                 completion = await self.openai.chat.completions.create(
                     model=os.getenv("OPENAI_MODEL"),
